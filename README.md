@@ -1,5 +1,5 @@
 # nQueens #
-Implemented function that returns the number of solutions to the nQueens problem for a board of size n.    
+Implemented function that returns the number of solutions for a board of size n    
 
 ## Optimizations ##
 
