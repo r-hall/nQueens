@@ -63,6 +63,10 @@ const nQueensWorker = (board, boardSize, rowCount, colsUsed, majorDiagUsed, mino
 }
 
 const countNQueensSolutions = (n) => {
+  let board = generateNewBoard(n);
+  let colsUsed = {};
+  let majorDiagUsed = {};
+  let minorDiagUsed = {};
   let rowCount = 0;
   // test wants value of 1 for n === 0
   if (n === 0) {
@@ -72,15 +76,15 @@ const countNQueensSolutions = (n) => {
   }
   let promisesArray = [];
   for (let i = 0; i < Math.ceil(n / 2); i++) {
-    let board = generateNewBoard(n);
-    let colsUsed = {};
-    let majorDiagUsed = {};
-    let minorDiagUsed = {};
     toggleBoard.call(board, 0, i);
     colsUsed[i] = true;
     majorDiagUsed[i - rowCount] = true;
     minorDiagUsed[i + rowCount] = true;
     promisesArray.push(nQueensWorker(board, n, rowCount + 1, colsUsed, majorDiagUsed, minorDiagUsed));
+    toggleBoard.call(board, 0, i);
+    delete colsUsed[i];
+    delete majorDiagUsed[i - rowCount];
+    delete minorDiagUsed[i + rowCount];
   }
   return Promise.all(promisesArray);
 };
