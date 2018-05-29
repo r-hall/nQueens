@@ -13,7 +13,7 @@ Implemented function that returns the number of solutions for a board of size n
 	
 	3. As the algorithm advances from row to row, the column, major and minor diagonal indexes 
        that have already been used so far in that search path are added to their respective objects 
-       and are passed along to the next recursive function call. Before a queen is placed in a square, 
+       which are passed along to the next recursive function call. Before a queen is placed in a square, 
        the column, major and minor diagonal indexes of that square are checked against those objects 
        so that paths that cannot succeed will not be explored
 	
