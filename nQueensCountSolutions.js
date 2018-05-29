@@ -8,7 +8,7 @@ function recurseQueen(board, boardSize, rowCount, colsUsed, majorDiagUsed, minor
     let solutions = 0;
     if (rowCount === boardSize) {
       let currentBoardArr = board;
-      // do not double count if queen was placed in middle column since it would be double counting that column
+      // do not count twice if queen was initially placed in middle column since it would be double counting that column
       // double the return values of all columns to the left of middle column (mirrored solutions)
       if (currentBoardArr[0][Math.floor(boardSize / 2)]) {
         return 1;
@@ -85,6 +85,5 @@ const countNQueensSolutions = (n) => {
   return Promise.all(promisesArray);
 };
 
-
-
+// finishes in 38 seconds
 countNQueensSolutions(15).then(result => console.log(result.reduce((acc, curr) => acc + curr, 0))) // should return 2,279,184
