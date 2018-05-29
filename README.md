@@ -4,9 +4,9 @@ Implemented function that returns the number of solutions for a board of size n
 ## Optimizations ##
 
 	1. Only columns on the left half of the board are explored for the first row, including the 
-       middle column if n is odd. If a solution is found in a column other than the middle column, 
-       the solution count is incremented by two rather than one to account for its mirrored pair 
-       on the right half of the board 
+       middle column if n is odd. If a solution is found where a queen was placed in the first row
+       in a column other than the middle column, the solution count is incremented by two rather 
+       than one to account for its mirrored pair on the right half of the board 
 	
 	2. An inner recursive function proceeds row by row so that no two squares in the same 
        row may be attempted
